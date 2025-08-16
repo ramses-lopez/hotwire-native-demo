@@ -1,0 +1,34 @@
+{
+  "settings": {
+    "screenshots_enabled": true
+  },
+  "rules": [
+    {
+      "patterns": [
+        "/new$",
+        "/edit$"
+      ],
+      "properties": {
+        "presentation": "modal"
+      }
+    },
+    {
+      "patterns": [
+        "^/$",
+        "/posts"
+      ],
+      "properties": {
+        "presentation": "replace",
+        "pull_to_refresh_enabled": true
+      }
+    },
+    {
+      "patterns": [
+        ".*"
+      ],
+      "properties": {
+        "presentation": "push"
+      }
+    }
+  ]
+}

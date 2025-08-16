@@ -1,15 +1,16 @@
 # Hotwire Native Mobile App Demo
 
-A demonstration of [Hotwire Native](https://native.hotwired.dev/) for Android, wrapping a Rails web application to create a native mobile app experience.
+A demonstration of [Hotwire Native](https://native.hotwired.dev/) for iOS and Android, wrapping a Rails web application to create native mobile app experiences.
 
 ## 📱 Project Structure
 
-This repository contains both the Rails backend and Android app:
+This repository contains the Rails backend and both mobile apps:
 
 ```
 .
 ├── rails-app/      # Rails 7 blog application with Hotwire
-└── android-app/    # Android app using Hotwire Native
+├── android-app/    # Android app using Hotwire Native
+└── ios-app/        # iOS app using Hotwire Native
 ```
 
 ## 🚀 Quick Start
@@ -17,7 +18,8 @@ This repository contains both the Rails backend and Android app:
 ### Prerequisites
 
 - Ruby 3.0+ (or system Ruby with sudo for gems)
-- Android Studio
+- Android Studio (for Android development)
+- Xcode 15+ (for iOS development)
 - JDK 17
 - Node.js (for Tailwind CSS in Rails)
 
@@ -32,8 +34,9 @@ bundle exec rails server -b 0.0.0.0
 
 The Rails app will be available at `http://localhost:3000`
 
-### 2. Configure and Run the Android App
+### 2. Configure and Run the Mobile Apps
 
+#### Android App
 1. Open Android Studio
 2. Open the `android-app` folder as a project
 3. Update the Rails server URL in:
@@ -45,6 +48,18 @@ The Rails app will be available at `http://localhost:3000`
    - `http://YOUR_COMPUTER_IP:3000` for physical device
 
 4. Run the app on your device/emulator
+
+#### iOS App
+1. Open Xcode
+2. Open `ios-app/HotwireApp.xcodeproj`
+3. Update the Rails server URL in:
+   - `ios-app/HotwireApp/Sources/SceneDelegate.swift` (line 5)
+   
+   Use:
+   - `http://localhost:3000` for iOS Simulator
+   - `http://YOUR_COMPUTER_IP:3000` for physical device
+
+4. Run the app on your device/simulator
 
 ## 🎯 Features
 
@@ -60,29 +75,43 @@ The Rails app will be available at `http://localhost:3000`
 - **WebView Integration**: Optimized for Turbo
 - **Play Store Ready**: Configured for production deployment
 
+### iOS App
+- **Turbo iOS**: Native iOS navigation with web content
+- **SwiftUI Ready**: Modern Swift architecture
+- **Pull-to-Refresh**: Native iOS interactions
+- **App Store Ready**: Configured for production deployment
+
 ## 📖 Documentation
 
 - [Rails App Documentation](rails-app/README.md)
 - [Android App Documentation](android-app/README.md)
+- [iOS App Documentation](ios-app/README.md)
 - [Hotwire Native Docs](https://native.hotwired.dev/)
 
 ## 🔧 Development Tips
 
-### Testing on Physical Device
+### Testing on Physical Devices
 1. Find your computer's IP: `ifconfig | grep "inet " | grep -v 127.0.0.1`
 2. Start Rails with: `bundle exec rails server -b 0.0.0.0`
-3. Update Android app to use `http://YOUR_IP:3000`
+3. Update mobile apps to use `http://YOUR_IP:3000`
 
 ### Using ngrok for Remote Testing
 1. Install ngrok: `brew install ngrok`
 2. Start tunnel: `ngrok http 3000`
-3. Use the HTTPS URL in your Android app
+3. Use the HTTPS URL in your mobile apps
 
-## 📱 Publishing to Google Play Store
+## 📱 Publishing to App Stores
 
+### Google Play Store (Android)
 1. Update `applicationId` in `android-app/app/build.gradle.kts`
 2. Generate signed AAB in Android Studio
 3. Upload to Google Play Console
+4. Deploy your Rails app to a production server
+
+### App Store (iOS)
+1. Update Bundle Identifier in Xcode project settings
+2. Archive and upload via Xcode
+3. Submit for App Store review
 4. Deploy your Rails app to a production server
 
 ## 🤝 Contributing

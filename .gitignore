@@ -27,6 +27,30 @@ android-app/*.aab
 android-app/*.ap_
 android-app/*.dex
 
+# iOS / Xcode
+ios-app/build/
+ios-app/DerivedData/
+ios-app/*.pbxuser
+ios-app/!default.pbxuser
+ios-app/*.mode1v3
+ios-app/!default.mode1v3
+ios-app/*.mode2v3
+ios-app/!default.mode2v3
+ios-app/*.perspectivev3
+ios-app/!default.perspectivev3
+ios-app/xcuserdata/
+ios-app/*.xccheckout
+ios-app/*.moved-aside
+ios-app/*.xcuserstate
+ios-app/*.xcscmblueprint
+ios-app/*.xcworkspace
+ios-app/.swiftpm/
+ios-app/.build/
+ios-app/Pods/
+ios-app/*.ipa
+ios-app/*.dSYM.zip
+ios-app/*.dSYM
+
 # OS files
 .DS_Store
 Thumbs.db
