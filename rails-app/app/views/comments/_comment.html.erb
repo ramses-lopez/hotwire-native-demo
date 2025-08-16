@@ -1,0 +1,14 @@
+<%= turbo_frame_tag dom_id(comment) do %>
+  <div class="bg-gray-50 rounded-lg p-4 border border-gray-200">
+    <div class="flex justify-between items-start mb-2">
+      <h4 class="font-semibold text-gray-800"><%= comment.author %></h4>
+      <%= button_to "×", post_comment_path(comment.post, comment), method: :delete, 
+          class: "text-gray-400 hover:text-red-500 text-xl leading-none",
+          data: { turbo_confirm: "Delete this comment?" } %>
+    </div>
+    <p class="text-gray-700"><%= comment.content %></p>
+    <time class="text-xs text-gray-500 mt-2 block">
+      <%= comment.created_at.strftime("%B %d, %Y at %I:%M %p") %>
+    </time>
+  </div>
+<% end %>
